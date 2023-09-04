@@ -46,7 +46,7 @@ x_train, x_test, y_train, y_test = train_test_split(x_smote, y_smote, test_size=
 gnb = GaussianNB()
 gnb.fit(x_train, y_train)
 
-# pred
+# prediction using Naive Bayes
 pred = gnb.predict(x_test)
 
 # accuracy
@@ -61,14 +61,14 @@ habitat = input("Enter habitat (urban, rural, or metropolitan): ")
 usage = input("Enter media usage (low, middle, or high): ")
 wellbeing = input("Enter wellbeing (low, middle, or high): ")
 
-# # transform user input
+# # transforming user input
 # label_encoder1 = preprocessing.LabelEncoder()
 # label_encoder2 = preprocessing.LabelEncoder()
 # label_encoder3 = preprocessing.LabelEncoder()
 # label_encoder4 = preprocessing.LabelEncoder()
 # label_encoder5 = preprocessing.LabelEncoder()
 
-# Encode labels in column 'species'.
+# Encoding labels in column 'species'.
 age = label_encoder1.transform([age])
 education = label_encoder2.transform([education])
 habitat = label_encoder3.transform([habitat])
@@ -77,8 +77,8 @@ wellbeing = label_encoder5.transform([wellbeing])
 
 user_input = [age[0], education[0], habitat[0], usage[0], wellbeing[0]]
 user_df = pd.DataFrame([user_input])
-# make a prediction
+# making a prediction
 prediction = gnb.predict(user_df)
 
-# output the prediction
+# output
 print("Your predicted anxiety level is:", prediction)
